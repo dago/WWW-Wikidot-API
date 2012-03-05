@@ -1,0 +1,49 @@
+#!/opt/csw/bin/perl
+
+use strict;
+use warnings;
+use lib 'lib';
+use Data::Dumper;
+use WWW::Wikidot::API;
+
+my $wd = WWW::Wikidot::API->new( site => "opencsw", user => "webcsw", password => "rNG876t1GwQYR2kWqOre0l6RR7Tydzbz" );
+
+#print join( "\n", $wd->categories ), "\n";
+
+#my @tags = $wd->tags;
+#print "$_\n" foreach (sort @tags );
+
+#print "\n";
+
+#print "$_\n" foreach ($wd->pages( tags => [qw(camp)] ));
+my @pages = $wd->pages( );
+
+foreach (@pages) {
+  print $_->fullname, " (", $_->revisions, ") '", $_->title, "' ", join( ",", $_->tags ), "\n";
+  print $_->content;
+}
+
+#my @files = $wd->files( page => 'porting-faq' );
+#print "F: ", join( ", ", @files ), "\n";
+
+#print "P: ", scalar @pages , "\n";
+
+#my $f = $files[1];
+#print "Size: ", $f->size, "\n";
+#print length( $f->content ), "\n";
+
+
+#@tags = $wd->tags( pages => \@pages );
+#print "$_\n" foreach (sort @tags );
+
+#foreach (@pages) {
+#  my %p = $wd->page( name => $_ );
+#print Dumper( %p );
+#  print "Name: $_ Rev: $p{revisions} Title: $p{title} Parent:  ", $p{parent_fullname} || "", " Tags: ", join( "-", @{$p{tags}} ), "\n";
+#}
+
+
+#foreach my $p ($wd->pages) {
+#  print "P: $p ", "\n";
+#  #print $wd->page( name => $p ), "\n";
+#}

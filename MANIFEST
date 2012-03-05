@@ -1,0 +1,11 @@
+Changes
+lib/WWW/Wikidot/API.pm
+lib/WWW/Wikidot/API/File.pm
+lib/WWW/Wikidot/API/Page.pm
+Makefile.PL
+MANIFEST			This list of files
+README
+t/00-load.t
+t/manifest.t
+t/pod-coverage.t
+t/pod.t
